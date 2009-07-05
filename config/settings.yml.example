@@ -1,0 +1,8 @@
+msn:
+  id: "MSN_ID_OF_BOT"
+  password: "PASSWORD"
+twitter:
+  ckey: "CONSUMER_KEY"
+  csecret: "CONSUMER_SECRET"
+interval: 60
+debug: false
