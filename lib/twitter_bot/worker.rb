@@ -12,8 +12,8 @@ module TwitterBot
       case message
       when /^!oauth/
         session.say """ \
-Please connect to #{user.request_token.authorize_url} and complete the authorization. \
-After completing authorization, twitter will show you 6 digit numbers. This is a PIN code.
+Please connect to #{user.request_token.authorize_url} and complete the authentication. \
+After completing authentication, twitter will show you 6 digit numbers. This is a PIN code.
 Please let me know these 6 digit PIN code with !pin command.
 
 EXAMPLE : !pin 432433
@@ -132,16 +132,17 @@ Please type !oauth command and start authorization.
     def help_str
       """\
 I am Twitter Bot.
-I will deliver your timeline update immediately.
-You can also update your twitter with ! command.
+I will deliver your timeline updates immediately.
 To use me, you need authorization. Please start authorization with !oauth command. Authorization is required just one time.
 
 Commands :
 - !oauth : Starts OAuth authorization to use Twitter.
+    EXAMPLE : !oauth
 - !pin PIN_NUMBER : Enter PIN number that twitter gives to complete OAuth authorization.
+    EXAMPLE : !pin 232334
 - !show : Shows user's state
 - ! TEXT:  Write TEXT on Twitter
-    EXAMPLE] ! some text
+    EXAMPLE : ! This text will be in my timeline.
 - !help : Shows help
 """
     end

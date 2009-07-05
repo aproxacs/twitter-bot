@@ -14,15 +14,12 @@ module TwitterBot
 
   mattr_accessor :log
   def self.info msg
-    p msg
     self.log.info msg if self.log
   end
   def self.error msg
-    p msg
     self.log.error msg if self.log
   end
   def self.debug msg
-    p msg
     self.log.debug msg if self.log and self.debug?
   end
 

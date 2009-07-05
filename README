@@ -1,2 +1,73 @@
 == twitter_bot
+* homepage : http://github.com/aproxacs/twitter-bot
+
+== DESCRIPTIONS
+Twitter bot is a MSN messenger bot interacting with Twitter.
+It observes Twitter's timeline updates, and notifies new updates with msn messenger.
+You can also update twitter with msn messenger.
+
+== DEMO & USE
+Here is a working twitter bot ID : twitterbot@live.co.kr.
+Just add twitterbot@live.co.kr as a friend of msn messenger. 
+=== Authorization
+You need a authorization to update and get timeline of twitter. Twitter supports OAuth authentication and Twitter bot uses it. To see what OAuth, refer to http://apiwiki.twitter.com/OAuth-FAQ. The step to completing authentication is simple.
+1. Type !oauth command. 
+Then the bot reply you with a url. Connect to the url and finish the authentication. After completing authenticataion, twitter will show you a 6 digit numbers. These numbers are PIN code.
+2. Type !pin PIN.
+For example, !pin 423432. That's it. 
+
+To see my authorization state, type !show command. 
+To see help, type !help command.
+
+
+== INSTALL
+You don't need to install it to use Twitter bot. There is working bot : twitterbot@live.co.kr.
+
+However if you make up your mind to use Twitter bot for a personal perpose, the following will be a guide for you.
+First of all, you need ruby and several gems.(see REQUIREMENTS)
+
+# Install ruby
+
+# Install gems
+* sudo gem install activesupport twitter eventmachine daemons
+
+# Download twitter bot from github(http://github.com/aproxacs/twitter-bot)
+* git clone git://github.com/aproxacs/twitter-bot.git
+
+# Set up a configuration(see CONFIGURATION)
+# msn id and password and twitter consumer key and secret are required.
+
+# Start as a daemon(see START & STOP)
+* cd DIR/lib
+* ruby twibot_ctl.rb start
+
+== REQUIREMENTS
+* ruby 1.8.6
+* activesupport
+* twitter
+* eventmachine
+* daemons
+
+== CONFIGURATION
+msn:
+  id: "MSN_ID_OF_BOT"    # msn id for bot
+  password: "PASSWORD"	 
+twitter:
+  ckey: "CONSUMER_KEY"   # cosumer key
+  csecret: "CONSUMER_SECRET"
+interval: 60 		# optional, interval(second) to check twitter timeline
+debug: false 		# optional
+data_file:   		# optional, filename to store user's data
+log_file:    		# optional, log filename
+
+
+== START & STOP
+# start as a daemon
+* ruby twibot_ctl.rb start
+
+# stop 
+* ruby twibot_ctl.rb stop
+
+# restart
+* ruby twibot_ctl.rb restart
 

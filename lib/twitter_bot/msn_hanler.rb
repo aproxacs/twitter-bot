@@ -10,7 +10,7 @@ module TwitterBot
       create_conn do |conn|
         conn.new_chat_session = lambda do |tag, session|
           TwitterBot.info "=> new chat session created with tag '#{tag}'!"
-          #        session.debuglog =  nil
+          session.debuglog =  nil if @options[:debug] == false
 
           session.message_received = lambda do |sender, message|
             TwitterBot.info "=> #{sender} says: #{message}"
@@ -54,7 +54,7 @@ module TwitterBot
       @conn.signed_in = lambda {
         @conn.change_nickname "Twitter Bot"
       }
-      #      @conn.debuglog = nil
+      @conn.debuglog = nil if @options[:debug] == false
       yield @conn if block_given?
       @conn
     end

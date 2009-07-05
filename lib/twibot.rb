@@ -1,5 +1,7 @@
 #!/usr/bin/ruby
 
+$: << File.dirname(__FILE__)
+
 require 'twitter_bot'
 
 CONFIG_FILE = File.join(File.dirname(__FILE__), "..", "config","settings.yml")
