@@ -126,7 +126,7 @@ Please type !oauth command and start authorization.
     end
 
     def find_user(email)
-      users[email] ||= User.new(email, @options[:twitter])
+      users[email] ||= User.new(email, @options[:twitter].clone)
     end
 
     def help_str
